@@ -287,7 +287,9 @@ namespace Pansiyon_Program {
             
             private global::System.Data.DataColumn columnTelefon;
             
-            private global::System.Data.DataColumn columnNot;
+            private global::System.Data.DataColumn columnKaraListe;
+            
+            private global::System.Data.DataColumn columnHatırlatma;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -356,9 +358,17 @@ namespace Pansiyon_Program {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn NotColumn {
+            public global::System.Data.DataColumn KaraListeColumn {
                 get {
-                    return this.columnNot;
+                    return this.columnKaraListe;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn HatırlatmaColumn {
+                get {
+                    return this.columnHatırlatma;
                 }
             }
             
@@ -399,14 +409,15 @@ namespace Pansiyon_Program {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CustomerRow AddCustomerRow(string Ad, string Soyad, string TC_NO, string Telefon, string Not) {
+            public CustomerRow AddCustomerRow(string Ad, string Soyad, string TC_NO, string Telefon, string KaraListe, string Hatırlatma) {
                 CustomerRow rowCustomerRow = ((CustomerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Ad,
                         Soyad,
                         TC_NO,
                         Telefon,
-                        Not};
+                        KaraListe,
+                        Hatırlatma};
                 rowCustomerRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCustomerRow);
                 return rowCustomerRow;
@@ -440,7 +451,8 @@ namespace Pansiyon_Program {
                 this.columnSoyad = base.Columns["Soyad"];
                 this.columnTC_NO = base.Columns["TC_NO"];
                 this.columnTelefon = base.Columns["Telefon"];
-                this.columnNot = base.Columns["Not"];
+                this.columnKaraListe = base.Columns["KaraListe"];
+                this.columnHatırlatma = base.Columns["Hatırlatma"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -454,8 +466,10 @@ namespace Pansiyon_Program {
                 base.Columns.Add(this.columnTC_NO);
                 this.columnTelefon = new global::System.Data.DataColumn("Telefon", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTelefon);
-                this.columnNot = new global::System.Data.DataColumn("Not", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNot);
+                this.columnKaraListe = new global::System.Data.DataColumn("KaraListe", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKaraListe);
+                this.columnHatırlatma = new global::System.Data.DataColumn("Hatırlatma", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHatırlatma);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTC_NO}, true));
                 this.columnAd.AllowDBNull = false;
@@ -467,7 +481,8 @@ namespace Pansiyon_Program {
                 this.columnTC_NO.MaxLength = 11;
                 this.columnTelefon.AllowDBNull = false;
                 this.columnTelefon.MaxLength = 11;
-                this.columnNot.MaxLength = 200;
+                this.columnKaraListe.MaxLength = 100;
+                this.columnHatırlatma.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -654,30 +669,58 @@ namespace Pansiyon_Program {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Not {
+            public string KaraListe {
                 get {
                     try {
-                        return ((string)(this[this.tableCustomer.NotColumn]));
+                        return ((string)(this[this.tableCustomer.KaraListeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Not\' in table \'Customer\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'KaraListe\' in table \'Customer\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableCustomer.NotColumn] = value;
+                    this[this.tableCustomer.KaraListeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsNotNull() {
-                return this.IsNull(this.tableCustomer.NotColumn);
+            public string Hatırlatma {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomer.HatırlatmaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Hatırlatma\' in table \'Customer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomer.HatırlatmaColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetNotNull() {
-                this[this.tableCustomer.NotColumn] = global::System.Convert.DBNull;
+            public bool IsKaraListeNull() {
+                return this.IsNull(this.tableCustomer.KaraListeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetKaraListeNull() {
+                this[this.tableCustomer.KaraListeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsHatırlatmaNull() {
+                return this.IsNull(this.tableCustomer.HatırlatmaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetHatırlatmaNull() {
+                this[this.tableCustomer.HatırlatmaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -844,47 +887,53 @@ namespace Pansiyon_Program.PansiyonDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Soyad", "Soyad");
             tableMapping.ColumnMappings.Add("TC_NO", "TC_NO");
             tableMapping.ColumnMappings.Add("Telefon", "Telefon");
-            tableMapping.ColumnMappings.Add("Not", "Not");
+            tableMapping.ColumnMappings.Add("KaraListe", "KaraListe");
+            tableMapping.ColumnMappings.Add("Hatırlatma", "Hatırlatma");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Customer] WHERE (([Ad] = @Original_Ad) AND ([Soyad] = @Origina" +
-                "l_Soyad) AND ([TC_NO] = @Original_TC_NO) AND ([Telefon] = @Original_Telefon) AND" +
-                " ((@IsNull_Not = 1 AND [Not] IS NULL) OR ([Not] = @Original_Not)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Customer] WHERE (([Ad] = @Original_Ad) AND ([Soyad] = @Original_Soyad) AND ([TC_NO] = @Original_TC_NO) AND ([Telefon] = @Original_Telefon) AND ((@IsNull_KaraListe = 1 AND [KaraListe] IS NULL) OR ([KaraListe] = @Original_KaraListe)) AND ((@IsNull_Hatırlatma = 1 AND [Hatırlatma] IS NULL) OR ([Hatırlatma] = @Original_Hatırlatma)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ad", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ad", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Soyad", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Soyad", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TC_NO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TC_NO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Telefon", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telefon", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Not", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Not", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Not", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Not", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_KaraListe", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KaraListe", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KaraListe", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KaraListe", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Hatırlatma", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hatırlatma", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hatırlatma", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hatırlatma", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Customer] ([Ad], [Soyad], [TC_NO], [Telefon], [Not]) VALUES (@" +
-                "Ad, @Soyad, @TC_NO, @Telefon, @Not);\r\nSELECT Ad, Soyad, TC_NO, Telefon, [Not] FR" +
-                "OM Customer WHERE (TC_NO = @TC_NO)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Customer] ([Ad], [Soyad], [TC_NO], [Telefon], [KaraListe], [Ha" +
+                "tırlatma]) VALUES (@Ad, @Soyad, @TC_NO, @Telefon, @KaraListe, @Hatırlatma);\r\nSEL" +
+                "ECT Ad, Soyad, TC_NO, Telefon, KaraListe, Hatırlatma FROM Customer WHERE (TC_NO " +
+                "= @TC_NO)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ad", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Soyad", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Soyad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TC_NO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TC_NO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Telefon", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telefon", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Not", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Not", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KaraListe", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KaraListe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hatırlatma", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hatırlatma", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Customer] SET [Ad] = @Ad, [Soyad] = @Soyad, [TC_NO] = @TC_NO, [Telefon] = @Telefon, [Not] = @Not WHERE (([Ad] = @Original_Ad) AND ([Soyad] = @Original_Soyad) AND ([TC_NO] = @Original_TC_NO) AND ([Telefon] = @Original_Telefon) AND ((@IsNull_Not = 1 AND [Not] IS NULL) OR ([Not] = @Original_Not)));
-SELECT Ad, Soyad, TC_NO, Telefon, [Not] FROM Customer WHERE (TC_NO = @TC_NO)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Customer] SET [Ad] = @Ad, [Soyad] = @Soyad, [TC_NO] = @TC_NO, [Telefon] = @Telefon, [KaraListe] = @KaraListe, [Hatırlatma] = @Hatırlatma WHERE (([Ad] = @Original_Ad) AND ([Soyad] = @Original_Soyad) AND ([TC_NO] = @Original_TC_NO) AND ([Telefon] = @Original_Telefon) AND ((@IsNull_KaraListe = 1 AND [KaraListe] IS NULL) OR ([KaraListe] = @Original_KaraListe)) AND ((@IsNull_Hatırlatma = 1 AND [Hatırlatma] IS NULL) OR ([Hatırlatma] = @Original_Hatırlatma)));
+SELECT Ad, Soyad, TC_NO, Telefon, KaraListe, Hatırlatma FROM Customer WHERE (TC_NO = @TC_NO)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ad", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Soyad", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Soyad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TC_NO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TC_NO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Telefon", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telefon", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Not", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Not", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KaraListe", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KaraListe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hatırlatma", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hatırlatma", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ad", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ad", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Soyad", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Soyad", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TC_NO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TC_NO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Telefon", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telefon", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Not", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Not", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Not", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Not", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_KaraListe", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KaraListe", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KaraListe", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KaraListe", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Hatırlatma", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hatırlatma", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hatırlatma", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hatırlatma", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -900,7 +949,7 @@ SELECT Ad, Soyad, TC_NO, Telefon, [Not] FROM Customer WHERE (TC_NO = @TC_NO)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Ad, Soyad, TC_NO, Telefon, [Not] FROM dbo.Customer";
+            this._commandCollection[0].CommandText = "SELECT Ad, Soyad, TC_NO, Telefon, KaraListe, Hatırlatma FROM dbo.Customer";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -961,7 +1010,7 @@ SELECT Ad, Soyad, TC_NO, Telefon, [Not] FROM Customer WHERE (TC_NO = @TC_NO)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Ad, string Original_Soyad, string Original_TC_NO, string Original_Telefon, string Original_Not) {
+        public virtual int Delete(string Original_Ad, string Original_Soyad, string Original_TC_NO, string Original_Telefon, string Original_KaraListe, string Original_Hatırlatma) {
             if ((Original_Ad == null)) {
                 throw new global::System.ArgumentNullException("Original_Ad");
             }
@@ -986,13 +1035,21 @@ SELECT Ad, Soyad, TC_NO, Telefon, [Not] FROM Customer WHERE (TC_NO = @TC_NO)";
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Telefon));
             }
-            if ((Original_Not == null)) {
+            if ((Original_KaraListe == null)) {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Not));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_KaraListe));
+            }
+            if ((Original_Hatırlatma == null)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Hatırlatma));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1014,7 +1071,7 @@ SELECT Ad, Soyad, TC_NO, Telefon, [Not] FROM Customer WHERE (TC_NO = @TC_NO)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Ad, string Soyad, string TC_NO, string Telefon, string Not) {
+        public virtual int Insert(string Ad, string Soyad, string TC_NO, string Telefon, string KaraListe, string Hatırlatma) {
             if ((Ad == null)) {
                 throw new global::System.ArgumentNullException("Ad");
             }
@@ -1039,11 +1096,17 @@ SELECT Ad, Soyad, TC_NO, Telefon, [Not] FROM Customer WHERE (TC_NO = @TC_NO)";
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Telefon));
             }
-            if ((Not == null)) {
+            if ((KaraListe == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Not));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(KaraListe));
+            }
+            if ((Hatırlatma == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Hatırlatma));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1065,7 +1128,7 @@ SELECT Ad, Soyad, TC_NO, Telefon, [Not] FROM Customer WHERE (TC_NO = @TC_NO)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Ad, string Soyad, string TC_NO, string Telefon, string Not, string Original_Ad, string Original_Soyad, string Original_TC_NO, string Original_Telefon, string Original_Not) {
+        public virtual int Update(string Ad, string Soyad, string TC_NO, string Telefon, string KaraListe, string Hatırlatma, string Original_Ad, string Original_Soyad, string Original_TC_NO, string Original_Telefon, string Original_KaraListe, string Original_Hatırlatma) {
             if ((Ad == null)) {
                 throw new global::System.ArgumentNullException("Ad");
             }
@@ -1090,43 +1153,57 @@ SELECT Ad, Soyad, TC_NO, Telefon, [Not] FROM Customer WHERE (TC_NO = @TC_NO)";
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Telefon));
             }
-            if ((Not == null)) {
+            if ((KaraListe == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Not));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(KaraListe));
+            }
+            if ((Hatırlatma == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Hatırlatma));
             }
             if ((Original_Ad == null)) {
                 throw new global::System.ArgumentNullException("Original_Ad");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Ad));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Ad));
             }
             if ((Original_Soyad == null)) {
                 throw new global::System.ArgumentNullException("Original_Soyad");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Soyad));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Soyad));
             }
             if ((Original_TC_NO == null)) {
                 throw new global::System.ArgumentNullException("Original_TC_NO");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_TC_NO));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_TC_NO));
             }
             if ((Original_Telefon == null)) {
                 throw new global::System.ArgumentNullException("Original_Telefon");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Telefon));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Telefon));
             }
-            if ((Original_Not == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            if ((Original_KaraListe == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Not));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_KaraListe));
+            }
+            if ((Original_Hatırlatma == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Hatırlatma));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1148,8 +1225,8 @@ SELECT Ad, Soyad, TC_NO, Telefon, [Not] FROM Customer WHERE (TC_NO = @TC_NO)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Ad, string Soyad, string Telefon, string Not, string Original_Ad, string Original_Soyad, string Original_TC_NO, string Original_Telefon, string Original_Not) {
-            return this.Update(Ad, Soyad, Original_TC_NO, Telefon, Not, Original_Ad, Original_Soyad, Original_TC_NO, Original_Telefon, Original_Not);
+        public virtual int Update(string Ad, string Soyad, string Telefon, string KaraListe, string Hatırlatma, string Original_Ad, string Original_Soyad, string Original_TC_NO, string Original_Telefon, string Original_KaraListe, string Original_Hatırlatma) {
+            return this.Update(Ad, Soyad, Original_TC_NO, Telefon, KaraListe, Hatırlatma, Original_Ad, Original_Soyad, Original_TC_NO, Original_Telefon, Original_KaraListe, Original_Hatırlatma);
         }
     }
     

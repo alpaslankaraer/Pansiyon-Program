@@ -60,7 +60,13 @@ namespace Pansiyon_Program
 				isimTextBox.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
 				soyisimTextBox.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
 				telefonTextBox.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-				notTextBox.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+				karaListeTextBox.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+				hatirlatmaTextBox.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+
+				TC_NOAratextBox.Text = "";
+				isimAraTextBox.Text = "";
+				soyisimAraTextBox.Text = "";
+
 			}
 			else
 			{
@@ -107,22 +113,24 @@ namespace Pansiyon_Program
 				SqlDataReader dr = cmd.ExecuteReader();
 				if (dr.Read())
 				{
-					string s = "update Customer set TC_NO=@TC_NO,Ad=@Ad,Soyad=@Soyad,Telefon=@Telefon,[Not]=@Not where TC_NO=@TC_NO";
+					string s = "update Customer set TC_NO=@TC_NO,Ad=@Ad,Soyad=@Soyad,Telefon=@Telefon,KaraListe=@KaraListe,Hatırlatma=@Hatırlatma where TC_NO=@TC_NO";
 					cmd = new SqlCommand(s, con);
 					cmd.Parameters.AddWithValue("@TC_NO", TC_NOTextBox.Text);
 					cmd.Parameters.AddWithValue("@Ad", nonspace(isimTextBox.Text.ToUpper()));
 					cmd.Parameters.AddWithValue("@Soyad", nonspace(soyisimTextBox.Text.ToUpper()));
 					cmd.Parameters.AddWithValue("@Telefon", telefonTextBox.Text);
-					cmd.Parameters.AddWithValue("@Not", notTextBox.Text);
+					cmd.Parameters.AddWithValue("@KaraListe", nonspace(karaListeTextBox.Text.ToUpper()));
+					cmd.Parameters.AddWithValue("@Hatırlatma", nonspace(hatirlatmaTextBox.Text.ToUpper()));
 				}
 				else
 				{
-					cmd = new SqlCommand("insert into Customer (TC_NO,Ad,Soyad,Telefon,[Not]) values (@TC_NO,@Ad,@Soyad,@Telefon,@Not)", con);
+					cmd = new SqlCommand("insert into Customer (TC_NO,Ad,Soyad,Telefon,KaraListe,Hatırlatma) values (@TC_NO,@Ad,@Soyad,@Telefon,@KaraListe,@Hatırlatma)", con);
 					cmd.Parameters.AddWithValue("@TC_NO", TC_NOTextBox.Text);
 					cmd.Parameters.AddWithValue("@Ad", nonspace(isimTextBox.Text.ToUpper()));
 					cmd.Parameters.AddWithValue("@Soyad", nonspace(soyisimTextBox.Text.ToUpper()));
 					cmd.Parameters.AddWithValue("@Telefon", telefonTextBox.Text);
-					cmd.Parameters.AddWithValue("@Not", notTextBox.Text);
+					cmd.Parameters.AddWithValue("@KaraListe", nonspace(karaListeTextBox.Text.ToUpper()));
+					cmd.Parameters.AddWithValue("@Hatırlatma", nonspace(hatirlatmaTextBox.Text.ToUpper()));
 				}
 				dr.Close();
 
@@ -135,12 +143,14 @@ namespace Pansiyon_Program
 				isimTextBox.Text = "";
 				soyisimTextBox.Text = "";
 				telefonTextBox.Text = "0";
-				notTextBox.Text = "";
+				karaListeTextBox.Text = "";
+				hatirlatmaTextBox.Text = "";
 				TC_NOAratextBox.Text = "";
 				isimAraTextBox.Text = "";
 				soyisimAraTextBox.Text = "";
 			}
 			listele();
+			dataGridView1.AutoResizeColumn(dataGridView1.CurrentRow.Cells[5].RowIndex);
 		}
 
 		private void TC_NOAratextBox_TextChanged(object sender, EventArgs e)
@@ -188,7 +198,12 @@ namespace Pansiyon_Program
 			bilgiLabel.Text = "Ekle butonuna tıklayarak seçilen müşteriyi sisteme ekleyebilirsiniz.";
 		}
 
-		private void notTextBox_TextChanged(object sender, EventArgs e)
+		private void hatirlatmaTextBox_TextChanged(object sender, EventArgs e)
+		{
+			bilgiLabel.Text = "Ekle butonuna tıklayarak seçilen müşteriyi sisteme ekleyebilirsiniz.";
+		}
+
+		private void karaListeTextBox_TextChanged(object sender, EventArgs e)
 		{
 			bilgiLabel.Text = "Ekle butonuna tıklayarak seçilen müşteriyi sisteme ekleyebilirsiniz.";
 		}
@@ -201,7 +216,7 @@ namespace Pansiyon_Program
 			if (dataGridView1.CurrentRow != null)
 			{
 				cmd = new SqlCommand("select * from Customer where TC_NO=@TC_NO", con);
-				cmd.Parameters.AddWithValue("@TC_NO", dataGridView1.CurrentRow.Cells[0].Value.ToString());
+				cmd.Parameters.AddWithValue("@TC_NO", dataGridView1.CurrentRow.Cells[2].Value.ToString());
 
 				SqlDataReader dr = cmd.ExecuteReader();
 				if (dr.Read())
@@ -212,7 +227,8 @@ namespace Pansiyon_Program
 					cmd.Parameters.AddWithValue("@Ad", dataGridView1.CurrentRow.Cells[0].Value.ToString());
 					cmd.Parameters.AddWithValue("@Soyad", dataGridView1.CurrentRow.Cells[1].Value.ToString());
 					cmd.Parameters.AddWithValue("@Telefon", dataGridView1.CurrentRow.Cells[3].Value.ToString());
-					cmd.Parameters.AddWithValue("@Not", dataGridView1.CurrentRow.Cells[4].Value.ToString());
+					cmd.Parameters.AddWithValue("@KaraListe", dataGridView1.CurrentRow.Cells[4].Value.ToString());
+					cmd.Parameters.AddWithValue("@Hatırlatma", dataGridView1.CurrentRow.Cells[5].Value.ToString());
 				}
 				dr.Close();
 
@@ -226,7 +242,8 @@ namespace Pansiyon_Program
 				isimTextBox.Text = "";
 				soyisimTextBox.Text = "";
 				telefonTextBox.Text = "0";
-				notTextBox.Text = "";
+				karaListeTextBox.Text = "";
+				hatirlatmaTextBox.Text = "";
 				TC_NOAratextBox.Text = "";
 				isimAraTextBox.Text = "";
 				soyisimAraTextBox.Text = "";
@@ -236,8 +253,8 @@ namespace Pansiyon_Program
 				MessageBox.Show("Şu an silinebilecek müşteri yok.");
 			}
 			listele();
-			dataGridView1.AutoResizeColumn(dataGridView1.CurrentRow.Cells[4].RowIndex);
+			//dataGridView1.AutoResizeColumn(dataGridView1.CurrentRow.Cells[5].RowIndex);
 		}
-		
+
 	}
 }

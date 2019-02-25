@@ -36,11 +36,12 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.soyisimAraTextBox = new System.Windows.Forms.TextBox();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.adDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.soyadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.tCNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.karaListeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.hatırlatmaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.pansiyonDataSet = new Pansiyon_Program.PansiyonDataSet();
 			this.label6 = new System.Windows.Forms.Label();
@@ -51,9 +52,11 @@
 			this.bilgiLabel = new System.Windows.Forms.Label();
 			this.ekleButton = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.label9 = new System.Windows.Forms.Label();
+			this.karaListeTextBox = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
-			this.notTextBox = new System.Windows.Forms.TextBox();
 			this.silButton = new System.Windows.Forms.Button();
+			this.hatirlatmaTextBox = new System.Windows.Forms.TextBox();
 			this.TC_NOTextBox = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.soyisimTextBox = new System.Windows.Forms.TextBox();
@@ -86,7 +89,7 @@
 			this.groupBox2.Controls.Add(this.label7);
 			this.groupBox2.Location = new System.Drawing.Point(166, 66);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(563, 498);
+			this.groupBox2.Size = new System.Drawing.Size(785, 498);
 			this.groupBox2.TabIndex = 35;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Müşteri Görüntüleme";
@@ -96,7 +99,7 @@
 			this.TC_NOAratextBox.Location = new System.Drawing.Point(244, 40);
 			this.TC_NOAratextBox.Name = "TC_NOAratextBox";
 			this.TC_NOAratextBox.Size = new System.Drawing.Size(113, 20);
-			this.TC_NOAratextBox.TabIndex = 25;
+			this.TC_NOAratextBox.TabIndex = 28;
 			this.TC_NOAratextBox.TextChanged += new System.EventHandler(this.TC_NOAratextBox_TextChanged);
 			// 
 			// label4
@@ -127,11 +130,12 @@
 			this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlDark;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
+            this.adDataGridViewTextBoxColumn,
+            this.soyadDataGridViewTextBoxColumn,
+            this.tCNODataGridViewTextBoxColumn,
+            this.telefonDataGridViewTextBoxColumn,
+            this.karaListeDataGridViewTextBoxColumn,
+            this.hatırlatmaDataGridViewTextBoxColumn});
 			this.dataGridView1.DataSource = this.customerBindingSource;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
@@ -144,43 +148,50 @@
 			this.dataGridView1.Location = new System.Drawing.Point(6, 66);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView1.Size = new System.Drawing.Size(551, 426);
-			this.dataGridView1.TabIndex = 9;
+			this.dataGridView1.Size = new System.Drawing.Size(773, 426);
+			this.dataGridView1.TabIndex = 70;
 			// 
-			// dataGridViewTextBoxColumn1
+			// adDataGridViewTextBoxColumn
 			// 
-			this.dataGridViewTextBoxColumn1.DataPropertyName = "Ad";
-			this.dataGridViewTextBoxColumn1.HeaderText = "Ad";
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-			this.dataGridViewTextBoxColumn1.Width = 45;
+			this.adDataGridViewTextBoxColumn.DataPropertyName = "Ad";
+			this.adDataGridViewTextBoxColumn.HeaderText = "Ad";
+			this.adDataGridViewTextBoxColumn.Name = "adDataGridViewTextBoxColumn";
+			this.adDataGridViewTextBoxColumn.Width = 45;
 			// 
-			// dataGridViewTextBoxColumn2
+			// soyadDataGridViewTextBoxColumn
 			// 
-			this.dataGridViewTextBoxColumn2.DataPropertyName = "Soyad";
-			this.dataGridViewTextBoxColumn2.HeaderText = "Soyad";
-			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-			this.dataGridViewTextBoxColumn2.Width = 62;
+			this.soyadDataGridViewTextBoxColumn.DataPropertyName = "Soyad";
+			this.soyadDataGridViewTextBoxColumn.HeaderText = "Soyad";
+			this.soyadDataGridViewTextBoxColumn.Name = "soyadDataGridViewTextBoxColumn";
+			this.soyadDataGridViewTextBoxColumn.Width = 62;
 			// 
-			// dataGridViewTextBoxColumn3
+			// tCNODataGridViewTextBoxColumn
 			// 
-			this.dataGridViewTextBoxColumn3.DataPropertyName = "TC_NO";
-			this.dataGridViewTextBoxColumn3.HeaderText = "TC_NO";
-			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-			this.dataGridViewTextBoxColumn3.Width = 68;
+			this.tCNODataGridViewTextBoxColumn.DataPropertyName = "TC_NO";
+			this.tCNODataGridViewTextBoxColumn.HeaderText = "TC_NO";
+			this.tCNODataGridViewTextBoxColumn.Name = "tCNODataGridViewTextBoxColumn";
+			this.tCNODataGridViewTextBoxColumn.Width = 68;
 			// 
-			// dataGridViewTextBoxColumn4
+			// telefonDataGridViewTextBoxColumn
 			// 
-			this.dataGridViewTextBoxColumn4.DataPropertyName = "Telefon";
-			this.dataGridViewTextBoxColumn4.HeaderText = "Telefon";
-			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-			this.dataGridViewTextBoxColumn4.Width = 68;
+			this.telefonDataGridViewTextBoxColumn.DataPropertyName = "Telefon";
+			this.telefonDataGridViewTextBoxColumn.HeaderText = "Telefon";
+			this.telefonDataGridViewTextBoxColumn.Name = "telefonDataGridViewTextBoxColumn";
+			this.telefonDataGridViewTextBoxColumn.Width = 68;
 			// 
-			// dataGridViewTextBoxColumn5
+			// karaListeDataGridViewTextBoxColumn
 			// 
-			this.dataGridViewTextBoxColumn5.DataPropertyName = "Not";
-			this.dataGridViewTextBoxColumn5.HeaderText = "Not";
-			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-			this.dataGridViewTextBoxColumn5.Width = 49;
+			this.karaListeDataGridViewTextBoxColumn.DataPropertyName = "KaraListe";
+			this.karaListeDataGridViewTextBoxColumn.HeaderText = "KaraListe";
+			this.karaListeDataGridViewTextBoxColumn.Name = "karaListeDataGridViewTextBoxColumn";
+			this.karaListeDataGridViewTextBoxColumn.Width = 76;
+			// 
+			// hatırlatmaDataGridViewTextBoxColumn
+			// 
+			this.hatırlatmaDataGridViewTextBoxColumn.DataPropertyName = "Hatırlatma";
+			this.hatırlatmaDataGridViewTextBoxColumn.HeaderText = "Hatırlatma";
+			this.hatırlatmaDataGridViewTextBoxColumn.Name = "hatırlatmaDataGridViewTextBoxColumn";
+			this.hatırlatmaDataGridViewTextBoxColumn.Width = 79;
 			// 
 			// customerBindingSource
 			// 
@@ -205,7 +216,7 @@
 			this.yanaGecirButton.Location = new System.Drawing.Point(363, 27);
 			this.yanaGecirButton.Name = "yanaGecirButton";
 			this.yanaGecirButton.Size = new System.Drawing.Size(143, 33);
-			this.yanaGecirButton.TabIndex = 28;
+			this.yanaGecirButton.TabIndex = 29;
 			this.yanaGecirButton.Text = "KİŞİYİ YANA GEÇİR";
 			this.yanaGecirButton.UseVisualStyleBackColor = true;
 			this.yanaGecirButton.Click += new System.EventHandler(this.yanaGecirButton_Click);
@@ -236,7 +247,7 @@
 			this.groupBox3.Controls.Add(this.bilgiLabel);
 			this.groupBox3.Location = new System.Drawing.Point(166, 11);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(563, 49);
+			this.groupBox3.Size = new System.Drawing.Size(785, 49);
 			this.groupBox3.TabIndex = 36;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Bilgi Ekranı";
@@ -253,10 +264,10 @@
 			// ekleButton
 			// 
 			this.ekleButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.ekleButton.Location = new System.Drawing.Point(6, 324);
+			this.ekleButton.Location = new System.Drawing.Point(6, 353);
 			this.ekleButton.Name = "ekleButton";
-			this.ekleButton.Size = new System.Drawing.Size(138, 108);
-			this.ekleButton.TabIndex = 22;
+			this.ekleButton.Size = new System.Drawing.Size(138, 96);
+			this.ekleButton.TabIndex = 24;
 			this.ekleButton.Text = "EKLE";
 			this.ekleButton.UseVisualStyleBackColor = true;
 			this.ekleButton.Click += new System.EventHandler(this.ekleButton_Click);
@@ -266,10 +277,12 @@
 			this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
 			this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			this.groupBox1.Controls.Add(this.label9);
+			this.groupBox1.Controls.Add(this.karaListeTextBox);
 			this.groupBox1.Controls.Add(this.label8);
-			this.groupBox1.Controls.Add(this.notTextBox);
 			this.groupBox1.Controls.Add(this.silButton);
 			this.groupBox1.Controls.Add(this.ekleButton);
+			this.groupBox1.Controls.Add(this.hatirlatmaTextBox);
 			this.groupBox1.Controls.Add(this.TC_NOTextBox);
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Controls.Add(this.soyisimTextBox);
@@ -285,33 +298,50 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Müşteri Ekleme";
 			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(6, 197);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(91, 13);
+			this.label9.TabIndex = 20;
+			this.label9.Text = "Kara Liste Nedeni";
+			// 
+			// karaListeTextBox
+			// 
+			this.karaListeTextBox.Location = new System.Drawing.Point(6, 213);
+			this.karaListeTextBox.Name = "karaListeTextBox";
+			this.karaListeTextBox.Size = new System.Drawing.Size(138, 20);
+			this.karaListeTextBox.TabIndex = 21;
+			this.karaListeTextBox.TextChanged += new System.EventHandler(this.karaListeTextBox_TextChanged);
+			// 
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(6, 197);
+			this.label8.Location = new System.Drawing.Point(6, 241);
 			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(24, 13);
-			this.label8.TabIndex = 20;
-			this.label8.Text = "Not";
-			// 
-			// notTextBox
-			// 
-			this.notTextBox.Location = new System.Drawing.Point(6, 213);
-			this.notTextBox.Multiline = true;
-			this.notTextBox.Name = "notTextBox";
-			this.notTextBox.Size = new System.Drawing.Size(138, 105);
-			this.notTextBox.TabIndex = 21;
-			this.notTextBox.TextChanged += new System.EventHandler(this.notTextBox_TextChanged);
+			this.label8.Size = new System.Drawing.Size(54, 13);
+			this.label8.TabIndex = 22;
+			this.label8.Text = "Hatırlatma";
 			// 
 			// silButton
 			// 
-			this.silButton.Location = new System.Drawing.Point(6, 438);
+			this.silButton.Location = new System.Drawing.Point(6, 455);
 			this.silButton.Name = "silButton";
-			this.silButton.Size = new System.Drawing.Size(138, 109);
-			this.silButton.TabIndex = 23;
+			this.silButton.Size = new System.Drawing.Size(138, 92);
+			this.silButton.TabIndex = 25;
 			this.silButton.Text = "SİL";
 			this.silButton.UseVisualStyleBackColor = true;
 			this.silButton.Click += new System.EventHandler(this.silButton_Click);
+			// 
+			// hatirlatmaTextBox
+			// 
+			this.hatirlatmaTextBox.Location = new System.Drawing.Point(6, 257);
+			this.hatirlatmaTextBox.Multiline = true;
+			this.hatirlatmaTextBox.Name = "hatirlatmaTextBox";
+			this.hatirlatmaTextBox.Size = new System.Drawing.Size(138, 90);
+			this.hatirlatmaTextBox.TabIndex = 23;
+			this.hatirlatmaTextBox.TextChanged += new System.EventHandler(this.hatirlatmaTextBox_TextChanged);
 			// 
 			// TC_NOTextBox
 			// 
@@ -389,7 +419,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(738, 576);
+			this.ClientSize = new System.Drawing.Size(960, 576);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox3);
 			this.Controls.Add(this.groupBox1);
@@ -435,15 +465,18 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox telefonTextBox;
 		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.TextBox notTextBox;
+		private System.Windows.Forms.TextBox hatirlatmaTextBox;
 		private PansiyonDataSet pansiyonDataSet;
 		private PansiyonDataSetTableAdapters.CustomerTableAdapter customerTableAdapter;
+		private System.Windows.Forms.DataGridViewTextBoxColumn adDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn soyadDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn tCNODataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn karaListeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn hatırlatmaDataGridViewTextBoxColumn;
 		private System.Windows.Forms.BindingSource customerBindingSource;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.TextBox karaListeTextBox;
 	}
 }
 
