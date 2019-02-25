@@ -9,4 +9,5 @@ Eklenen kişi bilgilerini gösteren Windows Form uygulaması
 * **Telefon** string
 * **KaraListe** string
 * **Hatirlatma** string
+
 tablonun içine yukarıdaki elemanları ekleyin.
